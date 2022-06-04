@@ -1,0 +1,30 @@
+.input{
+    margin: 10px;
+    border-radius: 4px;
+    border:solid 1px #33303047;
+    width: 170px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bolder;
+    transition: all 1s;
+}
+.input:focus{
+    border:solid 1px rgb(40, 241, 248);
+}
+.Add{
+    /* display: block; */
+    margin: 20px;
+    border:none;
+    font-size: 20px;
+    background-color: #7fff0069;
+    padding: 5px;
+    width: 100px;
+    border-radius: 5px;
+    transition: .6s;
+}
+.Add:hover{
+    background-color: #7fff00d4;
+}
+.fas{
+    width: 100px;   
+}

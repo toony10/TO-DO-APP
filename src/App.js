@@ -1,25 +1,42 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import ToDoList from './Components/todo-items/todo-items';
+import AddItems from './Components/add-items/add-items';
+class App extends Component
+{
+  state = {
+    items: [
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    ]
+  };
+  deleteItems = (id) =>
+  {
+    let items = this.state.items.filter(item => { return item.id !== id; });
+    this.setState({ items });
+  };
+
+  addItems = (item) =>
+  {
+    item.id = Math.random();
+    let items = this.state.items;
+    items.push(item);
+    this.setState({ items });
+  };
+  render()
+  {
+    return (
+      <div>
+        <h1> To Do List </h1>
+        <div className='items-list'>
+          <ToDoList items={ this.state.items } deleteItems={ this.deleteItems } doneMisions={ this.doneMisions } />
+        </div>
+        <div className='add-Item-section'>
+          <AddItems AddItems={ this.addItems } />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
